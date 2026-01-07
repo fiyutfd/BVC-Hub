@@ -1,1 +1,125 @@
+if _G.XION_Script_Loaded then
+    _G.XION_Execution_Count = (_G.XION_Execution_Count or 0) + 1
+    return
+end
 
+_G.XION_Script_Loaded = true
+_G.XION_Execution_Count = 1
+
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+
+local Window = WindUI:CreateWindow({
+    Title = "BVC Hub",
+    Icon = "door-open",
+    Author = "",
+    Folder = "你 (废物)",
+    Size = UDim2.fromOffset(560, 360),
+    Transparent = true,
+    Theme = "Dark",
+    User = {
+        Enabled = true,
+        Callback = function() 
+            print("clicked") 
+        end,
+        Anonymous = true
+    },
+})
+
+Window:EditOpenButton({
+    Title = "打开BVC Hub脚本",
+    Icon = "monitor",
+    CornerRadius = UDim.new(0,16),
+    StrokeThickness = 2,
+    Color = ColorSequence.new(
+        Color3.fromHex("FF0F7B"),
+        Color3.fromHex("F89B29")
+    ),
+    Draggable = true,
+})
+
+function Tab(a)
+    return Window:Tab({Title = a, Icon = "eye"})
+end
+
+function Button(a, b, c)
+    return a:Button({Title = b, Callback = c})
+end
+
+function Toggle(a, b, c, d)
+    return a:Toggle({Title = b, Value = c, Callback = d})
+end
+
+function Slider(a, b, c, d, e, f)
+    return a:Slider({Title = b, Step = 1, Value = {Min = c, Max = d, Default = e}, Callback = f})
+end
+
+function Dropdown(a, b, c, d, e)
+    return a:Dropdown({Title = b, Values = c, Value = d, Callback = e})
+end
+
+local Taba = Tab("公告")
+local Tabs = Tab("选择服务器")
+
+Taba:Paragraph({
+    Title = "作者：",
+    Desc = [[Chinese]],
+    Image = "eye",
+    ImageSize = 24,
+    Color = Color3.fromHex("#FFFFFF"),
+    BackgroundTransparency = 1,
+    OutlineColor = Color3.fromHex("#FFFFFF"),
+    OutlineThickness = 1,
+    Padding = UDim.new(0, 1)
+})
+
+Taba:Paragraph({
+    Title = "最大帮助人：",
+    Desc = [[司空]],
+    Image = "eye",
+    ImageSize = 24,
+    Color = Color3.fromHex("#FFFFFF"),
+    BackgroundTransparency = 1,
+    OutlineColor = Color3.fromHex("#FFFFFF"),
+    OutlineThickness = 1,
+    Padding = UDim.new(0, 1)
+})
+
+Taba:Paragraph({
+    Title = "禁止搬运",
+    Desc = [[ ]],
+    Image = "eye",
+    ImageSize = 24,
+    Color = Color3.fromHex("#FFFFFF"),
+    BackgroundTransparency = 1,
+    OutlineColor = Color3.fromHex("#FFFFFF"),
+    OutlineThickness = 1,
+    Padding = UDim.new(0, 1)
+})
+
+Taba:Paragraph({
+    Title = "禁止二创",
+    Desc = [[ ]],
+    Image = "eye",
+    ImageSize = 24,
+    Color = Color3.fromHex("#FFFFFF"),
+    BackgroundTransparency = 1,
+    OutlineColor = Color3.fromHex("#FFFFFF"),
+    OutlineThickness = 1,
+    Padding = UDim.new(0, 1)
+})
+
+Taba:Paragraph({
+    Title = "新出的功能很少",
+    Desc = [[ ]],
+    Image = "eye",
+    ImageSize = 24,
+    Color = Color3.fromHex("#FFFFFF"),
+    BackgroundTransparency = 1,
+    OutlineColor = Color3.fromHex("#FFFFFF"),
+    OutlineThickness = 1,
+    Padding = UDim.new(0, 1)
+})
+
+Button(Tab, "通用", function() 
+    loadstring(game:HttpGet("https://github.com/fiyutfd/BVC-Hub/blob/21a8da473c2b4d4cf5c4241487ff7027ffe44349/BVC%20Hub%E9%80%9A%E7%94%A8"))()
+end)
